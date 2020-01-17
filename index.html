@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Paint</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #7b7b7b;
+        }
+        #tools{
+            background: black;
+            padding: 10px;
+        }
+        #tools button{
+            padding: 2px 5px;
+        }
+        #board{
+            display: block;
+            background: white;
+            margin: 10px auto;
+        }
+        p{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="tools">
+        
+        <button onclick="undo()">Undo</button>
+        <button onclick="redo()">Redo</button><br>
+
+        <button onclick="setTool('pen')">Pencil</button>
+        <button onclick="setTool('line')">Line</button>
+        <button onclick="setTool('rect')">Rectangle</button>
+        <br>
+        <button onclick="changeColor('#ff0000')" style="background-color: red; color: white;">Red</button>
+        <button onclick="changeColor('#000000')" style="background-color: black; color: white;">Black</button>
+        <button onclick="changeColor('#00ff00')" style="background-color: green; color: white;">Green</button>
+    
+        <button onclick="changeLineWidth(1)">1</button>
+        <button onclick="changeLineWidth(2)">2</button>
+        <button onclick="changeLineWidth(3)">3</button>
+        <button onclick="changeLineWidth(4)">4</button>
+        <button onclick="changeLineWidth(5)">5</button>
+    </div>
+    <canvas id="board"></canvas>
+</body>   
+<script type="text/javascript" src="paint.js"></script>
+<script>
+    function changeColor(color){
+        p.color = color;
+    }
+    function changeLineWidth(lineWidth){
+        p.lineWidth = lineWidth;
+    }
+    function setTool(tool){
+        p.tool = tool;
+    }
+    function undo(){
+        p.undo();
+    }
+    function redo(){
+        p.redo();
+    }
+    
+</script>
+</html>
